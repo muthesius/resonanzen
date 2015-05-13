@@ -6,10 +6,13 @@ void setup() {
 }
 
 void loop() {
-  
+  blink();
+}
+
+void blink() {
   digitalWrite(2, HIGH);
   delay(1000);
   
   digitalWrite(3, LOW);
   delay(1000);
-}
+}  
