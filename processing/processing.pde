@@ -12,6 +12,11 @@ void setup () {
   for (int i = 0; i <= 13; i++) {
     arduino.pinMode(i, Arduino.INPUT);
   }
+
+  colorMode(HSB, width, 100, width);
+  noStroke();
+  background(0);
+
 }
 
 void draw() {
