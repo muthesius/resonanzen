@@ -1,15 +1,17 @@
 // Resonanzen v1.0
 // Arduino Firmware
 
+const int LED = 2;
+
 void setup() {
-  pinMode(2, OUTPUT);
+  pinMode(LED, OUTPUT);
 }
 
 void loop() {
   
-  digitalWrite(2, HIGH);
+  digitalWrite(LED, HIGH);
   delay(1000);
   
-  digitalWrite(2, LOW);
+  digitalWrite(LED, LOW);
   delay(1000);
 }
