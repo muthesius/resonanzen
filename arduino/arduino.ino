@@ -80,7 +80,7 @@ i2c_device_info query[MAX_QUERIES];
 byte i2cRxData[32];
 boolean isI2CEnabled = false;
 signed char queryIndex = -1;
-unsigned int i2cReadDelayTime = 2;  // default delay time between i2c read request and Wire.requestFrom()
+unsigned int i2cReadDelayTime = 0;  // default delay time between i2c read request and Wire.requestFrom()
 
 Servo servos[MAX_SERVOS];
 /*==============================================================================
@@ -100,7 +100,7 @@ void readAndReportData(byte address, int theRegister, byte numBytes) {
 #endif
     Wire.endTransmission();
     // do not set a value of 0
-    if (i2cReadDelayTime > 1) {
+    if (i2cReadDelayTime > 0) {
       // delay is necessary for some devices such as WiiNunchuck
       delayMicroseconds(i2cReadDelayTime);
     }
@@ -115,7 +115,7 @@ void readAndReportData(byte address, int theRegister, byte numBytes) {
     i2cRxData[0] = address;
     i2cRxData[1] = theRegister;
     for (int i = 0; i < numBytes; i++) {
-#if ARDUINO >= 300
+#if ARDUINO >= 100
       i2cRxData[2 + i] = Wire.read();
 #else
       i2cRxData[2 + i] = Wire.receive();
