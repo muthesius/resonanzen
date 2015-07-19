@@ -40,7 +40,7 @@ void stepAll(int speed) {
 }
 
 void loop() {
-  if(digitalRead(A0) == HIGH) {  
+  if(digitalRead(A0) == LOW) {  
     stepAll(steptime);
   }
 }
