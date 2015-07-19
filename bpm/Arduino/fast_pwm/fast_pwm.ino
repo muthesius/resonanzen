@@ -1,8 +1,6 @@
 #include <avr/interrupt.h>
 #include "TimerHelpers.h"
 
-// This is using the 16-bit timer.  10-bit pwm
-
 #ifndef cbi
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
 #endif
