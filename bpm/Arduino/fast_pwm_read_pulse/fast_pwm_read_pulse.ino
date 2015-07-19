@@ -40,7 +40,7 @@ uint16_t ReadADC(uint8_t ch)      // Function to read value of ADC
 void setup() {
   interruptSetup();                 // sets up to read Pulse Sensor signal every 2mS
 
-//  InitADC();
+  //  InitADC();
 
   pinMode( 9, OUTPUT);  pinMode(10, OUTPUT);
 
@@ -53,15 +53,13 @@ void setup() {
 
 void loop()
 {
-  if (true == true) {
-    //  static uint16_t n = 0;
-    //  n = ReadADC(0);
-    OCR1A = Signal;  OCR1B = Signal;
-//    QS = false;
+  if (BPM < 30 || BPM > 180) return;
+  if (Pulse == true) {
+    OCR1A = OCR1B = Signal;
   } else {
-    OCR1A = OCR1B = 0;
+    OCR1A = OCR1B = 511;
   }
-
+//  delay(20);
 }
 
 
